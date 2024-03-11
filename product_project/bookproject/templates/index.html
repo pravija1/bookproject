@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block body %}
+<!--{% for i in book_list %}-->
+<!--<a href="book/{{i.id}}">{{i.name}} </a> <br>-->
+<!--&lt;!&ndash;{{i.name}} &#45;&#45;&#45;&#45;&#45;&#45; {{i.desc}} &#45;&#45;&#45;&#45;&#45;&#45; {{i.year}} <br>&ndash;&gt;-->
+<!--{% endfor %}-->
+
+
+<div class="container overflow-hidden">
+    <div class="row ">
+        {% for i in book_list %}
+        <div class="col">
+            <div class="p-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{i.img.url}}" alt="{{i.name}}" width="200" height="200">
+                <div class="card-body">
+                     <h5 class="card-title">{{i.name}}</h5>
+                     <p class="card-text"> {{i.desc}}</p>
+                     <a href="{% url 'bookapp:detail' i.id %}" class="btn btn-primary">Click for details</a>
+                 </div>
+            </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
